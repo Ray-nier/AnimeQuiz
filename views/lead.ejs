@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href='/stylesheets/score.css'>
+</head>
+<body>
+    <div class="header">
+      
+        <nav>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/gen">Category</a>
+          <a href="/lead">Leaderboards</a>
+        </nav>
+      </div>
+    <h1><%= title %></h1>
+   
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (results && results.length > 0) { %>
+                <% results.forEach(result => { %>
+                    <tr>
+                        <td><%= result.name %></td>
+                        <td><%= result.result %></td>
+                        <td><%= new Date(result.createdAt).toLocaleString() %></td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="3">No results found.</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

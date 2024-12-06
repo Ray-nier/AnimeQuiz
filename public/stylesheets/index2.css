@@ -1,0 +1,131 @@
+@font-face {
+  font-family: cu;
+  src: url(/images/DEATH_FONT.TTF);
+}
+@font-face {
+  font-family: cus;
+  src: url(/images/Japanese3017.ttf);
+}
+body {
+  font: 18px cus;
+  margin: 0;
+  background-image: url(/images/13.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+ 
+}
+.header{
+  background-color: #18313fe8;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  justify-content: space-between;
+  padding: 20px 550px;
+ }
+.foot{
+  margin-top: 10px;
+  margin-left: 935px;
+}
+nav a{
+list-style-type: none;
+color: white;
+margin-left: 80px;
+text-decoration: none;
+transition: .3s;
+font-size: 23px;
+
+}
+nav a:hover{
+  color: orange;
+
+}
+
+
+
+.container {
+  border: 4px  white;
+  border-radius: 20px;
+  width: 700px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  margin-left: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  background-color: rgba(34, 31, 31, 0.692); 
+  backdrop-filter: blur(2px); 
+  -webkit-backdrop-filter: blur(10px); 
+  margin-top: 20px;
+}
+
+
+.form-label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.form-select,
+.form-control {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.form-control {
+  width: 96%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff8c00;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  float: right;
+}
+
+.btn-primary:hover {
+  background-color: #ff6600;
+}
+
+
+.heads {
+  margin-top: 20px;
+}
+
+.heads a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: rgba(73, 54, 40, 0.9);
+  border-radius: 5px;
+  padding: 10px 15px;
+  transition: background-color 0.3s;
+  border: 2px solid white;
+}
+
+.heads a:hover {
+  background-color: orange;
+}
+
+
+.head {
+  font-family: cus;
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-shadow: 8px 8px 0.2cap  black ;
+}

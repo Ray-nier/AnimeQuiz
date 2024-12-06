@@ -1,0 +1,106 @@
+
+  
+ @font-face {
+  font-family: cu;
+  src: url(/images/DEATH_FONT.TTF);
+}
+@font-face {
+  font-family: cus;
+  src: url(/images/Japanese3017.ttf);
+}
+body {
+  font: 18px cus;
+  margin: 0;
+  background-image: url(/images/13.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+ 
+}
+.header{
+  background-color: #18313fe8;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  justify-content: space-between;
+  padding: 20px 550px;
+ }
+.foot{
+  margin-top: 10px;
+  margin-left: 935px;
+}
+nav a{
+list-style-type: none;
+color: white;
+margin-left: 80px;
+text-decoration: none;
+transition: .3s;
+font-size: 23px;
+
+}
+nav a:hover{
+  color: orange;
+
+}
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 50px 0;
+  }
+  
+  .profile-card {
+    background-color: var(--c);
+    width: 250px;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    margin-top: 45px;
+    color: white;
+    box-shadow: 13px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    background-color: rgba(34, 31, 31, 0.692); 
+    backdrop-filter: blur(2px); 
+    -webkit-backdrop-filter: blur(10px); 
+    font-family : georgia;
+  }
+  .profile-card h4 {
+    color: white;
+    font-size: 25px;
+  }
+  
+  .profile-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 1);
+    transform: translateY(-10px);
+  }
+  
+  img {
+    height: 120px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+  
+  img:hover {
+    transform: scale(1.1);
+  }
+  
+  h4 {
+    margin: 15px 0;
+    font-size: 20px;
+    color: var(--d);
+  }
+  
+  .divider {
+    border-top: 2px solid #f8f8f8e8;
+    width: 90%;
+    margin: 10px auto;
+  }
+  
+  .info p {
+    margin: 5px 0;
+    font-size: 16px;
+  }
+ 

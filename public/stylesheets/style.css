@@ -1,0 +1,135 @@
+@font-face {
+  font-family: cu;
+  src: url(/images/DEATH_FONT.TTF);
+}
+@font-face {
+  font-family: cus;
+  src: url(/images/Japanese3017.ttf);
+}
+body {
+  font: 18px cus;
+  margin: 0;
+  background-image: url(/images/13.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+ 
+}
+.header{
+ background-color: #18313fe8;
+ width: 100%;
+ display: flex;
+ align-items: center;
+ height: 30px;
+ justify-content: space-between;
+ padding: 20px 550px;
+}
+.foot{
+  margin-top: 10px;
+  margin-left: 935px;
+}
+nav a{
+list-style-type: none;
+color: white;
+margin-left: 80px;
+text-decoration: none;
+transition: .3s;
+font-size: 23px;
+
+}
+nav a:hover{
+  color: orange;
+
+}
+.text{
+  text-align: justify;
+  width: 540px;
+  margin-left: 20px;
+  
+ 
+
+ 
+}
+.container {
+  border: 1px  rgba(255, 255, 255, 0.7); 
+  border-radius: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  background-color: rgba(34, 31, 31, 0.692); 
+  backdrop-filter: blur(2px); 
+  -webkit-backdrop-filter: blur(10px); 
+  height: 300px;
+  width:700px;
+  margin-left: 350px;
+  margin-top: -5%;
+ 
+}
+
+.button {
+  border-radius: 4px;
+  background-color: rgba(34, 31, 31, 0.692); 
+  border: none;
+  border-radius: 40px;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+height: 0%;
+margin-left: 900px;
+margin-top: 30px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.img{
+  margin-top: -380px;
+  margin-left: 900px;
+
+}
+.img img{
+  width: 300px;
+filter: drop-shadow(0 0 10px black);
+  
+}
+h3{
+padding-top: 3px;
+font-size: 65px;
+text-align: center;
+margin-left: 85px;
+color: white;
+text-shadow: 10px 10px 0.2cap  black ;
+letter-spacing: 4px;
+
+}
+ h1{
+  margin-left: 350px;
+  text-shadow: 8px 8px 0.2cap  black ;
+  color: white;
+  font-size: 50px;
+  }

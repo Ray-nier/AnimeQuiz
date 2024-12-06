@@ -1,0 +1,79 @@
+@font-face {
+    font-family: cu;
+    src: url(/images/DEATH_FONT.TTF);
+  }
+  @font-face {
+    font-family: cus;
+    src: url(/images/Japanese3017.ttf);
+  }
+  body {
+    font: 18px cus;
+    margin: 0;
+    background-image: url(/images/13.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+   
+  }
+  .header{
+   background-color: #18313fe8;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   height: 30px;
+   justify-content: space-between;
+   padding: 20px 550px;
+  }
+  .foot{
+    margin-top: 10px;
+    margin-left: 935px;
+  }
+  nav a{
+  list-style-type: none;
+  color: white;
+  margin-left: 80px;
+  text-decoration: none;
+  transition: .3s;
+  font-size: 23px;
+  
+  }
+  nav a:hover{
+    color: orange;
+  }  
+.container{
+    height: 500px;
+    width: 400px;
+    border: 6px solid black;
+    border-radius: 60px;
+}
+.leader{
+    height: 100px;
+    width: 300px;
+    border: 3px solid black;
+    border-radius: 60px;
+    overflow: auto; 
+    position: absolute;
+    top: 50px;
+    margin-left: 52px;
+    background-color: pink;
+}
+.content{
+   margin-left: 450px;
+   margin-top: 100px;
+}
+table{
+    margin:auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    background-color: rgba(34, 31, 31, 0.692); 
+    backdrop-filter: blur(2px); 
+    -webkit-backdrop-filter: blur(10px); 
+    color: white;
+    height:20vh;
+}
+h1{
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+    text-shadow: 10px 10px 0.2cap  black ;
+    letter-spacing: 5px;
+}

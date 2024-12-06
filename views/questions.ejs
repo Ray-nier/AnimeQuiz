@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/question.css">
+  <title>Trivia Questions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="container mt-5" id="sub">
+    <h1 class="mb-4">Anime & Manga Quiz</h1>
+    <div>
+      <% if (questions.length > 0) { %>
+        <ul class="list-group cons">
+          <% questions.forEach((question, index) => { %>
+            <div class="qd">
+            <li class="list-group-item">
+              <strong>Question <%= index + 1 %>:</strong> <%- question.question %><br>
+              <strong>Difficulty:</strong> <%= question.difficulty %> <br>
+
+              <% if (question.type === 'multiple') { %>
+                <div>
+                  <% 
+                    const allAnswers = [...question.incorrect_answers, question.correct_answer];
+                    for (let i = allAnswers.length - 1; i > 0; i--) {
+                      const j = Math.floor(Math.random() * (i + 1));
+                      [allAnswers[i], allAnswers[j]] = [allAnswers[j], allAnswers[i]];
+                    }
+                  %>
+                  <% allAnswers.forEach(answer => { %>
+                    <input type="radio" id="q<%= index %>_<%= answer %>" name="q<%= index %>" value="<%- answer %>">
+                    <label for="q<%= index %>_<%= answer %>" class="answer"><%- answer %></label>
+                  <% }); %>
+                </div>
+              <% } else if (question.type === 'boolean') { %>
+                <div class="trulse">
+                  <input type="radio" id="q<%= index %>_True" name="q<%= index %>" value="True" >
+                  <label for="q<%= index %>_True" class="answer">True</label>
+                </div>
+                <div class="flaws">
+                  <input type="radio" id="q<%= index %>_False" name="q<%= index %>" value="False" >
+                  <label for="q<%= index %>_False" class="answer">False</label>
+                </div>
+              <% } %>
+            </li>
+          <% }); %>
+        </ul>
+      <% } else { %>
+        <p>Too much number Of Question!!</p>
+      <% } %>
+      
+      <div class="score" id="score" style="display:none;">
+        <div class="score-header">
+        
+        </div>
+        <div id="score-content">
+          <p id="score-text"></p>
+        </div>
+        <div id="resultPopup" class="popup">
+          <h3>Result</h3>
+          <p id="resultContent">Your result goes here...</p>
+          
+          
+          <label for="username"></label>
+          <input type="text" id="username" name="username" placeholder="Enter your name" required>
+
+          <div class="click">
+            <button id="saveButton" onclick="saveResult()" class="btn btn-secondary mt-4">Save</button>
+             <a href="/gen" class="retry">Retry</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button1">
+      <button class="btn btn-secondary mt-4" onclick="showscore()">Submit</button>
+      <a href="/" class="btn btn-secondary mt-4">Home</a>
+    </div>
+    <script>
+      
+      const questions = <%- JSON.stringify(questions) %>;   
+      let score = 0;
+
+        function showscore() {
+          score = 0;
+          questions.forEach((question, index) => {
+            const selectedAnswer = document.querySelector(`input[name="q${index}"]:checked`);
+            const correctAnswer = question.correct_answer;
+        
+            // check if the user selected an answer
+            if (selectedAnswer) {
+              const selectedLabel = document.querySelector(`label[for="${selectedAnswer.id}"]`);
+        
+              // check if the selected answer is correct
+              if (selectedAnswer.value === correctAnswer) {
+                score++;
+                selectedLabel.classList.add('correct'); 
+              } else {
+                selectedLabel.classList.add('incorrect'); 
+                const correctLabel = document.querySelector(`label[for="q${index}_${correctAnswer}"]`);
+                correctLabel.classList.add('correct'); 
+              }
+            } else {
+
+              // if no answer is selected, highlight the correct answer in green
+              
+              const correctLabel = document.querySelector(`label[for="q${index}_${correctAnswer}"]`);
+              correctLabel.classList.add('correct'); 
+            }
+          });
+        
+          const scoreText = document.getElementById('resultContent');
+          scoreText.innerText = ` ${score}/${questions.length}`;
+          document.getElementById('score').style.display = 'block';
+        
+          // disable all radio buttons after submitting
+          document.querySelectorAll('input[type="radio"]').forEach(input => {
+            input.disabled = true;
+          });
+        }
+      
+
+      function toggleScorePopup() {
+        const scorePopup = document.getElementById('score');
+        scorePopup.style.display = scorePopup.style.display === 'none' ? 'block' : 'none';
+      }
+
+     
+  
+  
+  
+  document.querySelectorAll('input[type="radio"]').forEach(input => {
+    input.disabled = false;
+  });
+
+
+
+      function saveResult() {
+        const result = document.getElementById('resultContent').innerText;
+        const name = document.getElementById('username').value;
+      
+        if (!name) {
+          alert('Please enter your name.');
+          return;
+        }
+      
+        fetch('/saveResult', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, result }),  
+        })
+        .then(response => {
+          if (response.ok) {
+            alert('Result saved successfully!');
+            closePopup();
+          } else {
+            alert('Failed to save the result.');
+          }
+        })
+        .catch(err => console.error(err));
+      }
+      
+    </script>
+  </div>
+</body>
+</html>
